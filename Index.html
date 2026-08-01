@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Muhammed Anzil | Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Icon Library (Remix Icon) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top left, #0b1120, #020617 60%, #000000);
+      color: #e5e7eb;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    
+    /* Light mode base */
+    body.light { background: #f3f4f6; color: #020617; }
+    body.light a { color: #2563eb; }
+    body.light a:hover { color: #1d4ed8; }
+    body.light h3 { color: #020617; }
+    body.light .pill { background: rgba(255, 255, 255, 0.6); border-color: #d1d5db; color: #111827; box-shadow: 0 4px 15px rgba(148, 163, 184, 0.2); }
+    body.light .pill i { color: #2563eb; }
+    body.light footer { color: #6b7280; }
+    
+    /* Elegant Code Syntax Floating Background */
+    .bg-blob {
+      position: fixed;
+      inset: auto -200px -200px auto;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15), transparent 70%);
+      filter: blur(16px);
+      pointer-events: none;
+      animation: floatBlob 20s ease-in-out infinite alternate;
+      z-index: -2;
+    }
+    
+    @keyframes floatBlob {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(-60px, -60px) scale(1.2); }
+      100% { transform: translate(-120px, 20px) scale(0.9); }
+    }
+
+    .code-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100vh;
+      pointer-events: none; z-index: -1; overflow: hidden;
+    }
+
+    .code-symbol {
+      position: absolute;
+      color: rgba(56, 189, 248, 0.08);
+      font-family: 'Fira Code', monospace;
+      font-weight: 300;
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+      bottom: -20%;
+      animation: classicFloat linear infinite;
+    }
+
+    body.light .code-symbol { color: rgba(37, 99, 235, 0.1); text-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
+
+    .code-symbol:nth-child(1) { left: 8%; font-size: 3.5rem; animation-duration: 25s; animation-delay: 0s; }
+    .code-symbol:nth-child(2) { left: 28%; font-size: 2.2rem; animation-duration: 20s; animation-delay: -5s; }
+    .code-symbol:nth-child(3) { left: 45%; font-size: 4.5rem; animation-duration: 30s; animation-delay: -12s; }
+    .code-symbol:nth-child(4) { left: 60%; font-size: 2.8rem; animation-duration: 22s; animation-delay: -2s; }
+    .code-symbol:nth-child(5) { left: 75%; font-size: 3.8rem; animation-duration: 35s; animation-delay: -8s; }
+    .code-symbol:nth-child(6) { left: 88%; font-size: 2.4rem; animation-duration: 18s; animation-delay: -15s; }
+
+    @keyframes classicFloat {
+      0% { transform: translateY(10vh) rotate(-15deg) scale(0.8); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(25deg) scale(1.3); opacity: 0; }
+    }
+
+    a { color: #38bdf8; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { text-decoration: underline; color: #7dd3fc; }
+    
+    /* ==================================================
+       HERO / HEADER SECTION
+       ================================================== */
+    header {
+      padding: 12vh 1.5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      background: transparent;
+      backdrop-filter: none; 
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      z-index: 100;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      transition: all 0.5s ease;
+      pointer-events: auto;
+    }
+
+    /* Cutout Profile Image with Fade Mask */
+    .profile-img-container {
+      width: 200px;
+      height: 230px;
+      margin-bottom: -20px; 
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
+      
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      opacity: 0;
+      animation: photoReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom;
+      transition: transform 0.4s ease;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2; 
+      transition: all 0.4s ease;
+    }
+
+    /* Animated Text */
+    .greeting {
+      font-size: 1.2rem;
+      color: #9ca3af;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: heroFadeUp 0.8s ease forwards 0.5s;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0.2rem 0;
+      white-space: nowrap; 
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: heroFadeUp 0.8s ease forwards 0.7s;
+      transition: all 0.4s ease;
+    }
+    
+    body.light header h1 {
+      background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header h2 {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #cbd5f5;
+      opacity: 0;
+      animation: heroFadeUp 0.8s ease forwards 0.9s;
+      transition: all 0.4s ease;
+    }
+
+    .highlight {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    @keyframes photoReveal {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); filter: blur(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: absolute;
+      right: 1.5rem;
+      top: 2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.4);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.3);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+      color: #f9fafb;
+      transition: all 0.4s ease;
+      z-index: 101;
+      pointer-events: auto;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px) rotate(15deg);
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+    }
+
+    body.light .theme-toggle { background: rgba(255, 255, 255, 0.5); color: #020617; border-color: rgba(0,0,0,0.1); }
+    body.light .theme-toggle:hover { background: rgba(255,255,255,1); border-color: #38bdf8; }
+
+    /* ==================================================
+       SCROLLED STATE - COMPLETELY TRANSPARENT, ONLY NAME
+       ================================================== */
+    header.scrolled {
+      padding: 1.2rem 1.5rem;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: none;
+      box-shadow: none;
+      pointer-events: none;
+    }
+
+    body.light header.scrolled {
+      background: transparent;
+      border-bottom: none;
+      box-shadow: none;
+    }
+
+    header.scrolled .header-inner {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      pointer-events: auto;
+    }
+    
+    header.scrolled .profile-img-container {
+      width: 0; height: 0; opacity: 0; margin: 0; pointer-events: none;
+    }
+
+    header.scrolled .greeting,
+    header.scrolled h2 {
+      max-height: 0; opacity: 0; margin: 0; padding: 0; pointer-events: none; transform: translateY(-10px);
+    }
+
+    header.scrolled h1 { 
+      font-size: 1.6rem; 
+      margin: 0; 
+      transform: translateY(0);
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    body.light header.scrolled h1 {
+      text-shadow: 0 4px 20px rgba(255,255,255,0.8);
+    }
+    
+    header.scrolled .theme-toggle {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    header.scrolled .theme-toggle:hover {
+      transform: translateY(-50%) scale(1.05) rotate(15deg);
+    }
+
+    /* ==================================================
+       MAIN CONTENT (WITH HUGE GAP)
+       ================================================== */
+    main {
+      max-width: 900px;
+      /* Massive gap pushes this out of view on page load */
+      margin: 55vh auto 0; 
+      padding: 0 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* ==================================================
+       NAVIGATION CHIPS (Hidden on load, appear on scroll)
+       ================================================== */
+    .nav-chips {
+      grid-column: 1 / -1;
+      margin: 0 0 1rem 0;
+      display: flex;
+      justify-content: flex-start;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      
+      /* Hidden state by default */
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    
+    /* Javascript adds this class when scrolled down */
+    .nav-chips.show-chips {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .nav-chip {
+      display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.4rem 1rem; border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.6); background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px);
+      cursor: pointer; font-weight: 500; transition: all 0.3s ease; color: #e5e7eb;
+    }
+
+    .nav-chip:hover {
+      background: rgba(30, 64, 175, 0.7); border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.25); transform: translateY(-2px); color: #fff;
+    }
+
+    .sidebar { position: sticky; top: 100px; }
+
+    /* ==================================================
+       SECTION BOXES
+       ================================================== */
+    section {
+      margin-bottom: 1.6rem;
+      padding: 1.5rem;
+      border-radius: 1.2rem;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(40px) scale(0.98);
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    body.light section { background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(0, 0, 0, 0.05); }
+    
+    section.is-visible { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+
+    section.is-visible:hover {
+      transform: translateY(-4px) scale(1.01);
+      background: rgba(15, 23, 42, 0.65);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.15);
+      z-index: 2;
+    }
+
+    body.light section.is-visible:hover {
+      background: rgba(255, 255, 255, 0.8); border-color: rgba(56, 189, 248, 0.4);
+    }
+    
+    section.cta-section:hover {
+      transform: translateY(0) scale(1) !important;
+      background: transparent !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
+
+    h3 {
+      font-size: 1.1rem; margin-bottom: 0.85rem; color: #f9fafb; letter-spacing: 0.08em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.5rem; font-weight: 700;
+    }
+
+    h3 i { font-size: 1.3rem; color: #38bdf8; }
+    p { font-size: 1rem; color: #d1d5db; font-weight: 300; }
+
+    @keyframes floatPill {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
+    }
+
+    .pill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.25rem; }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.8rem; border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.85rem; font-weight: 500; color: #e5e7eb;
+      background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(8px); transition: all 0.3s ease; animation: floatPill 4s ease-in-out infinite;
+    }
+    
+    .pill:nth-child(even) { animation-delay: 0.5s; animation-duration: 4.5s; }
+    .pill:nth-child(3n) { animation-delay: 1.2s; animation-duration: 3.5s; }
+
+    .pill i { font-size: 1rem; color: #38bdf8; }
+    .pill:hover {
+      animation-play-state: paused; transform: translateY(-3px) scale(1.05) !important;
+      border-color: rgba(56, 189, 248, 0.6); background: rgba(30, 64, 175, 0.5); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+    }
+
+    .skill-category { margin-top: 1.2rem; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* PROJECT SECTION */
+    .project { margin-bottom: 1.8rem; transition: transform 0.3s ease; }
+    .project:hover { transform: translateX(6px); }
+    .project-title { font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1.2rem; color: #fff; }
+    .project-title i { font-size: 1.2rem; color: #38bdf8; }
+    .project-tech { font-size: 0.9rem; color: #9ca3af; font-weight: 500; margin-top: 0.25rem; margin-bottom: 0.8rem; }
+    
+    .project-img {
+      width: 100%; height: 240px; object-fit: cover; border-radius: 0.8rem; margin-bottom: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.4s ease;
+    }
+    .project-img:hover { transform: scale(1.02); box-shadow: 0 12px 30px rgba(0,0,0,0.4); border-color: rgba(56, 189, 248, 0.3); }
+
+    .project-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.2rem; }
+    
+    .project-link {
+      display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #e5e7eb; text-decoration: none;
+      background: rgba(30, 41, 59, 0.6); padding: 0.4rem 1rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease;
+    }
+    
+    .project-link i { font-size: 1.1rem; color: #38bdf8; }
+    .project-link:hover {
+      background: rgba(37, 99, 235, 0.2); border-color: rgba(56, 189, 248, 0.6); color: #7dd3fc;
+      transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2); text-decoration: none;
+    }
+    
+    body.light .project-link { background: rgba(255, 255, 255, 0.8); border-color: #d1d5db; color: #111827; }
+    body.light .project-link:hover { background: #e0e7ff; border-color: #93c5fd; }
+
+    .sidebar section { margin-bottom: 1.4rem; }
+    .sidebar p, .sidebar li { font-size: 0.95rem; color: #d1d5db; font-weight: 300; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+
+    /* ==================================================
+       SIDEBAR CONTACT LINKS
+       ================================================== */
+    .contact-links a {
+      display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.95rem; font-weight: 400; word-break: break-all;
+      padding: 0.5rem 0.6rem; border-radius: 0.8rem; border: 1px solid transparent; background: rgba(30, 41, 59, 0.2); transition: all 0.3s ease; color: #e5e7eb; text-decoration: none;
+    }
+    .contact-links a i { font-size: 1.2rem; color: #38bdf8; }
+    .contact-links a:hover {
+      background: rgba(30, 41, 59, 0.8); border-color: rgba(56, 189, 248, 0.5); box-shadow: 0 8px 25px rgba(56, 189, 248, 0.15);
+      transform: translateX(5px);
+    }
+    body.light .contact-links a { color: #020617; }
+    body.light .contact-links a:hover { background: rgba(255, 255, 255, 0.8); }
+
+    /* ==================================================
+       NEW CALL TO ACTION (CTA) ENDING SECTION
+       ================================================== */
+    section.cta-section {
+      grid-column: 1 / -1; 
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+      margin-bottom: 0;
+    }
+
+    .cta-text {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #e5e7eb;
+      max-width: 650px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    body.light .cta-text { color: #374151; }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.8rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #38bdf8;
+      background: transparent;
+      border: 2px solid #38bdf8;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+    }
+    
+    .cta-button:hover {
+      background: rgba(56, 189, 248, 0.1);
+      color: #7dd3fc;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+      text-decoration: none;
+    }
+    
+    body.light .cta-button { color: #2563eb; border-color: #2563eb; }
+    body.light .cta-button:hover { background: rgba(37, 99, 235, 0.1); color: #1d4ed8; box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+
+    footer { max-width: 900px; margin: 0 auto 1.5rem; padding: 0 1.5rem; font-size: 0.9rem; font-weight: 300; color: #6b7280; text-align: center; }
+    .footer-line { height: 1px; width: 100%; max-width: 500px; margin: 0 auto 1.5rem; background: linear-gradient(to right, transparent, rgba(75, 85, 99, 0.9), transparent); }
+
+    .scroll-top {
+      position: fixed; right: 1.5rem; bottom: 1.5rem; width: 45px; height: 45px; border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center; cursor: pointer; color: #38bdf8;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); opacity: 0; pointer-events: none; transform: translateY(15px);
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); z-index: 20;
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .scroll-top:hover { background: rgba(56, 189, 248, 0.1); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3); }
+    .scroll-top i { font-size: 1.5rem; }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 480px) {
+      header h1 { font-size: 2.2rem; }
+      header h2 { font-size: 1.1rem; }
+      header { padding-top: 8vh; }
+      .profile-img-container { width: 180px; height: 210px; margin-bottom: -15px; }
+      main { margin-top: 65vh; }
+      .project-img { height: 180px; }
+      .cta-text { font-size: 1.2rem; }
+    }
+
+    @media (max-width: 768px) {
+      main { grid-template-columns: 1fr; gap: 1.4rem; margin-top: 25vh; }
+      .sidebar { position: static; }
+      section { padding: 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-blob"></div>
+
+  <!-- Unique floating programming syntax background -->
+  <div class="code-bg">
+    <span class="code-symbol">{ }</span>
+    <span class="code-symbol">&lt;/&gt;</span>
+    <span class="code-symbol">def</span>
+    <span class="code-symbol">()</span>
+    <span class="code-symbol">#</span>
+    <span class="code-symbol">[ ]</span>
+  </div>
+
+  <header id="main-header">
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="ri-moon-line"></i>
+    </button>
+      
+    <div class="header-inner">
+      <div class="profile-img-container">
+        <!-- Replace this URL with your own transparent cutout PNG -->
+        <img src="C:\Users\MUHAMMED ANZIL\Desktop\Luminar\project\portfilo\cutout.png" alt="Muhammed Anzil" class="profile-img" />
+      </div>
+      
+      <div class="header-text">
+        <span class="greeting">Hi! my name is</span>
+        <h1>Muhammed Anzil</h1>
+        <h2>I am a <span class="highlight">Full Stack Developer.</span></h2>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Nav Chips (Hidden on load, triggered on scroll) -->
+    <div class="nav-chips" id="navChips">
+      <a href="#about" class="nav-chip"><i class="ri-user-smile-line"></i> About</a>
+      <a href="#projects" class="nav-chip"><i class="ri-layout-masonry-line"></i> Projects</a>
+      <a href="#skills" class="nav-chip"><i class="ri-code-s-slash-line"></i> Skills</a>
+      <a href="#languages" class="nav-chip"><i class="ri-translate-2"></i> Languages</a>
+      <a href="#education" class="nav-chip"><i class="ri-graduation-cap-line"></i> Education</a>
+    </div>
+
+    <!-- Left column -->
+    <div>
+      <section id="about">
+        <h3><i class="ri-user-smile-line"></i> About Me</h3>
+        <p>
+          I am a Python Django Full Stack Developer with hands-on experience building robust, responsive web applications. My technical foundation spans across modern frontend design using HTML, CSS, JavaScript, and Bootstrap, to secure and efficient backend architecture utilizing Django, Django ORM, REST API, and MySQL databases. I am deeply passionate about writing clean, maintainable code, solving complex architectural problems, and continuously adapting to the latest web technologies and development best practices through tools like Git and VS Code.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h3><i class="ri-layout-4-line"></i> Projects</h3>
+        <div style="margin-top: 1rem;">
+          
+          <div class="project">
+            <div class="project-title">
+              <i class="ri-shopping-cart-2-line"></i>
+              E-Commerce Web Application
+            </div>
+            <p class="project-tech">
+              Python · Django · MySQL · JavaScript · HTML/CSS · Bootstrap
+            </p>
+            
+            <img 
+              src="C:\Users\MUHAMMED ANZIL\Desktop\Luminar\project\portfilo\homzo.jpeg" 
+              alt="E-Commerce Project Preview" 
+              class="project-img"
+            />
+
+            <ul>
+              <li>Developed a comprehensive, full-stack e-commerce web application utilizing the Django framework for robust backend operations.</li>
+              <li>Engineered secure user authentication flows, dynamic product management systems, and functional shopping cart/checkout experiences.</li>
+              <li>Implemented end-to-end order management systems, allowing users to track purchases and administrators to fulfill requests efficiently.</li>
+              <li>Designed highly responsive and intuitive frontend pages using HTML, CSS, Bootstrap, and JavaScript to ensure cross-device compatibility.</li>
+              <li>Integrated and structured a MySQL relational database for efficient data storage, rapid querying, and safe data retrieval.</li>
+            </ul>
+
+            <div class="project-links">
+              <a href="#" class="project-link" target="_blank" aria-label="View Live Project">
+                <i class="ri-external-link-line"></i> View Live Site
+              </a>
+              <a href="#" class="project-link" target="_blank" aria-label="View Source Code">
+                <i class="ri-github-fill"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="education">
+        <h3><i class="ri-graduation-cap-line"></i> Education</h3>
+        <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
+        <p>Kannur University</p>
+        <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.2rem;">June 2023 - April 2026</p>
+      </section>
+    </div>
+
+    <!-- Right column (sidebar) -->
+    <div class="sidebar">
+      <section id="skills">
+        <h3><i class="ri-code-line"></i> Technical Skills</h3>
+
+        <div class="skill-category">Languages</div>
+        <div class="pill-list">
+          <span class="pill"><i class="ri-python-line"></i>Python</span>
+          <span class="pill"><i class="ri-javascript-line"></i>JavaScript</span>
+        </div>
+        
+        <div class="skill-category">Backend & Frameworks</div>
+        <div class="pill-list">
+          <span class="pill"><i class="ri-code-box-line"></i>Django</span>
+          <span class="pill"><i class="ri-server-line"></i>Django ORM</span>
+          <span class="pill"><i class="ri-exchange-box-line"></i>REST API</span>
+        </div>
+
+        <div class="skill-category">Frontend</div>
+        <div class="pill-list">
+          <span class="pill"><i class="ri-html5-line"></i>HTML</span>
+          <span class="pill"><i class="ri-css3-line"></i>CSS</span>
+          <span class="pill"><i class="ri-layout-row-line"></i>Bootstrap</span>
+        </div>
+        
+        <div class="skill-category">Database & Tools</div>
+        <div class="pill-list">
+          <span class="pill"><i class="ri-database-2-line"></i>MySQL</span>
+          <span class="pill"><i class="ri-git-branch-line"></i>Git</span>
+          <span class="pill"><i class="ri-github-fill"></i>GitHub</span>
+          <span class="pill"><i class="ri-code-s-slash-line"></i>VS Code</span>
+        </div>
+      </section>
+
+      <section id="languages">
+        <h3><i class="ri-translate-2"></i> Languages</h3>
+        <div class="pill-list">
+          <span class="pill">English</span>
+          <span class="pill">Malayalam</span>
+          <span class="pill">Hindi</span>
+        </div>
+      </section>
+
+      <section id="contact-sidebar">
+        <h3><i class="ri-send-plane-2-line"></i> Contact Links</h3>
+        <div class="contact-links">
+          <!-- 100% Functional Links Added Below -->
+          <a href="mailto:muhammedanzil.official@gmail.com" target="_blank">
+            <i class="ri-mail-line"></i> muhammedanzil.official@gmail.com
+          </a>
+          <a href="tel:+917510423936">
+            <i class="ri-phone-line"></i> +91 7510423936
+          </a>
+          <a href="https://www.google.com/maps/place/Kerala,+India" target="_blank">
+            <i class="ri-map-pin-line"></i> Kerala, India
+          </a>
+          <a href="https://www.linkedin.com/in/muhammed-anzil" target="_blank">
+            <i class="ri-linkedin-box-line"></i> LinkedIn
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Functional WhatsApp Call to Action Ending -->
+    <section class="cta-section" id="contact">
+      <p class="cta-text">
+        Looking to build something extraordinary? Let’s bring your ideas to life. Whether you have an exciting project in mind, need a full-stack developer, or just want to say hello—my inbox is always open.
+      </p>
+      <!-- Direct link to WhatsApp with pre-filled greeting -->
+      <a href="https://wa.me/917510423936?text=Hi%20Anzil,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" class="cta-button" target="_blank">
+        <i class="ri-whatsapp-line" style="margin-right: 8px; font-size: 1.4rem;"></i> Message on WhatsApp
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-line"></div>
+    © <span id="year"></span> Muhammed Anzil. All rights reserved.
+  </footer>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="ri-arrow-up-s-line"></i>
+  </button>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const header = document.getElementById("main-header");
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    const navChips = document.getElementById("navChips");
+
+    // Unified scroll handler for the entire window
+    const handleScroll = () => {
+      let scrollPos = window.scrollY;
+
+      // When user starts scrolling, snap to transparent navbar mode
+      if (scrollPos > 40) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      // Show Nav Chips ONLY after scrolling down past the hero
+      if (scrollPos > 150) {
+        navChips.classList.add("show-chips");
+      } else {
+        navChips.classList.remove("show-chips");
+      }
+
+      // Show back-to-top button
+      if (scrollPos > 300) {
+        scrollBtn.classList.add("visible");
+      } else {
+        scrollBtn.classList.remove("visible");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector("i");
+    
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      body.classList.add("light");
+      themeIcon.classList.remove("ri-moon-line");
+      themeIcon.classList.add("ri-sun-line");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isLight = body.classList.toggle("light");
+      if (isLight) {
+        themeIcon.classList.remove("ri-moon-line");
+        themeIcon.classList.add("ri-sun-line");
+        localStorage.setItem("theme", "light");
+      } else {
+        themeIcon.classList.remove("ri-sun-line");
+        themeIcon.classList.add("ri-moon-line");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Smooth scroll for nav chips
+    document.querySelectorAll('.nav-chip').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          e.preventDefault();
+          const offset = 80; 
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = targetElement.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+
+    // Cinematic Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px', 
+      threshold: 0.1
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      if(section.id !== 'contact') {
+        sectionObserver.observe(section);
+      }
+    });
+    
+    // Specifically observe the CTA section
+    const ctaSection = document.getElementById('contact');
+    if(ctaSection) sectionObserver.observe(ctaSection);
+
+  </script>
+</body>
+</html>
