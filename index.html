@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Muhammed Anzil - Full Stack Developer</title>
+  <title>Muhammed Anzil | Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <!-- Modern Google Fonts -->
@@ -91,23 +91,18 @@
     a:hover { text-decoration: underline; color: #7dd3fc; }
     
     /* ==================================================
-       HERO / HEADER SECTION
+       HERO / HEADER SECTION - FULL SCREEN COVER PAGE
        ================================================== */
-   header {
-      padding: 12vh 1.5rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
+    header {
+      width: 100%;
+      min-height: 100vh; /* ഫുൾ സ്ക്രീൻ എടുക്കുന്നു */
       display: flex;
       flex-direction: column;
-      position: sticky;
-      top: 0;
-      background: transparent;
-      backdrop-filter: none; 
-      -webkit-backdrop-filter: none;
-      border-bottom: 1px solid transparent;
+      justify-content: center; /* നടുക്ക് ആക്കാൻ */
+      align-items: center;
+      position: relative; /* നോർമൽ ഫ്ലോ (സ്ക്രോൾ ചെയ്യുമ്പോൾ കൂടെ വരില്ല) */
       z-index: 100;
-      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-      pointer-events: none;
+      padding: 2rem 1.5rem;
     }
 
     .header-inner {
@@ -116,15 +111,13 @@
       align-items: center;
       text-align: center;
       width: 100%;
-      transition: all 0.5s ease;
-      pointer-events: auto;
     }
 
     /* Cutout Profile Image with Fade Mask */
     .profile-img-container {
-      width: 200px;
-      height: 230px;
-      margin-bottom: -20px; 
+      width: 220px;
+      height: 250px;
+      margin-bottom: -15px; 
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -132,7 +125,6 @@
       -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
       
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       opacity: 0;
       animation: photoReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
     }
@@ -142,7 +134,6 @@
       height: 100%;
       object-fit: contain;
       object-position: bottom;
-      transition: transform 0.4s ease;
     }
 
     .header-text {
@@ -150,7 +141,6 @@
       flex-direction: column;
       align-items: center;
       z-index: 2; 
-      transition: all 0.4s ease;
     }
 
     /* Animated Text */
@@ -175,7 +165,6 @@
       -webkit-text-fill-color: transparent;
       opacity: 0;
       animation: heroFadeUp 0.8s ease forwards 0.7s;
-      transition: all 0.4s ease;
     }
     
     body.light header h1 {
@@ -190,7 +179,6 @@
       color: #cbd5f5;
       opacity: 0;
       animation: heroFadeUp 0.8s ease forwards 0.9s;
-      transition: all 0.4s ease;
     }
 
     .highlight {
@@ -210,7 +198,7 @@
 
     /* Theme Toggle */
     .theme-toggle {
-      position: absolute;
+      position: absolute; /* ആദ്യ പേജിന്റെ മുകളിൽ നിൽക്കും */
       right: 1.5rem;
       top: 2rem;
       border-radius: 999px;
@@ -226,7 +214,6 @@
       color: #f9fafb;
       transition: all 0.4s ease;
       z-index: 101;
-      pointer-events: auto;
     }
 
     .theme-toggle:hover {
@@ -240,66 +227,11 @@
     body.light .theme-toggle:hover { background: rgba(255,255,255,1); border-color: #38bdf8; }
 
     /* ==================================================
-       SCROLLED STATE - COMPLETELY TRANSPARENT, ONLY NAME
-       ================================================== */
-    header.scrolled {
-      padding: 1.2rem 1.5rem;
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      border-bottom: none;
-      box-shadow: none;
-      pointer-events: none;
-    }
-
-    body.light header.scrolled {
-      background: transparent;
-      border-bottom: none;
-      box-shadow: none;
-    }
-
-    header.scrolled .header-inner {
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      pointer-events: auto;
-    }
-    
-    header.scrolled .profile-img-container {
-      width: 0; height: 0; opacity: 0; margin: 0; pointer-events: none;
-    }
-
-    header.scrolled .greeting,
-    header.scrolled h2 {
-      max-height: 0; opacity: 0; margin: 0; padding: 0; pointer-events: none; transform: translateY(-10px);
-    }
-
-    header.scrolled h1 { 
-      font-size: 1.6rem; 
-      margin: 0; 
-      transform: translateY(0);
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-
-    body.light header.scrolled h1 {
-      text-shadow: 0 4px 20px rgba(255,255,255,0.8);
-    }
-    
-    header.scrolled .theme-toggle {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    header.scrolled .theme-toggle:hover {
-      transform: translateY(-50%) scale(1.05) rotate(15deg);
-    }
-
-    /* ==================================================
-       MAIN CONTENT (WITH HUGE GAP)
+       MAIN CONTENT (ആദ്യ പേജിന് ശേഷം വരുന്നത്)
        ================================================== */
     main {
       max-width: 900px;
-      /* Massive gap pushes this out of view on page load */
-      margin: 55vh auto 0; 
+      margin: 0 auto; /* ഓവർലാപ്പ് മാറ്റി നോർമൽ ആക്കി */
       padding: 0 1.5rem 2rem;
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -312,21 +244,19 @@
        ================================================== */
     .nav-chips {
       grid-column: 1 / -1;
-      margin: 0 0 1rem 0;
+      margin: 0 0 1.5rem 0;
       display: flex;
       justify-content: flex-start;
       gap: 0.6rem;
       flex-wrap: wrap;
       font-size: 0.85rem;
       
-      /* Hidden state by default */
       opacity: 0;
       pointer-events: none;
       transform: translateY(20px);
       transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
     
-    /* Javascript adds this class when scrolled down */
     .nav-chips.show-chips {
       opacity: 1;
       pointer-events: auto;
@@ -344,7 +274,7 @@
       box-shadow: 0 8px 25px rgba(56, 189, 248, 0.25); transform: translateY(-2px); color: #fff;
     }
 
-    .sidebar { position: sticky; top: 100px; }
+    .sidebar { position: sticky; top: 30px; }
 
     /* ==================================================
        SECTION BOXES
@@ -546,15 +476,13 @@
     @media (max-width: 480px) {
       header h1 { font-size: 2.2rem; }
       header h2 { font-size: 1.1rem; }
-      header { padding-top: 8vh; }
       .profile-img-container { width: 180px; height: 210px; margin-bottom: -15px; }
-      main { margin-top: 65vh; }
       .project-img { height: 180px; }
       .cta-text { font-size: 1.2rem; }
     }
 
     @media (max-width: 768px) {
-      main { grid-template-columns: 1fr; gap: 1.4rem; margin-top: 25vh; }
+      main { grid-template-columns: 1fr; gap: 1.4rem; }
       .sidebar { position: static; }
       section { padding: 1.2rem; }
     }
@@ -584,8 +512,8 @@
         <!-- Replace this URL with your own transparent cutout PNG -->
         <img src="cutout.png" alt="Muhammed Anzil" class="profile-img" />
       </div>
-
-       <div class="header-text">
+      
+      <div class="header-text">
         <span class="greeting">Hi! my name is</span>
         <h1>Muhammed Anzil</h1>
         <h2>I am a <span class="highlight">Full Stack Developer.</span></h2>
@@ -715,7 +643,7 @@
           <a href="https://www.google.com/maps/place/Kerala,+India" target="_blank">
             <i class="ri-map-pin-line"></i> Kerala, India
           </a>
-          <a href="https://www.linkedin.com/in/muhammed-anzil-2562a840a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+          <a href="https://www.linkedin.com/in/muhammed-anzil" target="_blank">
             <i class="ri-linkedin-box-line"></i> LinkedIn
           </a>
         </div>
@@ -729,7 +657,7 @@
       </p>
       <!-- Direct link to WhatsApp with pre-filled greeting -->
       <a href="https://wa.me/917510423936?text=Hi%20Anzil,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" class="cta-button" target="_blank">
-        <i class="ri-whatsapp-line" style="margin-right: 8px; font-size: 1.4rem;"></i> Say Hello
+        <i class="ri-whatsapp-line" style="margin-right: 8px; font-size: 1.4rem;"></i> Message on WhatsApp
       </a>
     </section>
   </main>
@@ -746,20 +674,12 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const header = document.getElementById("main-header");
     const scrollBtn = document.getElementById("scrollTopBtn");
     const navChips = document.getElementById("navChips");
 
-    // Unified scroll handler for the entire window
+    // Unified scroll handler
     const handleScroll = () => {
       let scrollPos = window.scrollY;
-
-      // When user starts scrolling, snap to transparent navbar mode
-      if (scrollPos > 40) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
 
       // Show Nav Chips ONLY after scrolling down past the hero
       if (scrollPos > 150) {
