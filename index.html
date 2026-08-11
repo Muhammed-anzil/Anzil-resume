@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="LFB6PsZlz0SYGsk-Jd7Z_9BeyhuhDheGXj5D-QjxAyE" />
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
   <title>Muhammed Anzil | Python Django Full Stack Developer</title>
-  <meta name="description" content="Portfolio of Muhammed Anzil, a Python Django Full Stack Developer based in Kerala, India. Experienced in building responsive web applications using Django, MySQL, JavaScript, HTML, and CSS.">
-  <meta name="keywords" content="Muhammed Anzil, Full Stack Developer, Python Developer Kerala, Django Developer wayanad, Web Developer, BCA Student, Portfolio">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="title" content="Muhammed Anzil | Python Django Full Stack Developer">
+  <meta name="description" content="Portfolio of Muhammed Anzil, a Python Django Full Stack Developer based in Kerala, India. Explore my web development projects, technical skills, and get in touch.">
+  <meta name="keywords" content="Muhammed Anzil, Full Stack Developer, Python Developer Kerala, Django Developer, Web Developer, BCA Student, Portfolio">
+  <meta name="author" content="Muhammed Anzil">
 
   <!-- Open Graph / Facebook / WhatsApp / LinkedIn Sharing Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://muhammedanzil.vercel.app/">
+  <meta property="og:title" content="Muhammed Anzil | Python Django Full Stack Developer">
+  <meta property="og:description" content="Explore the professional portfolio of Muhammed Anzil, featuring full-stack web development projects, skills, and contact information.">
   <meta property="og:image" content="https://muhammedanzil.vercel.app/Googlimage.jpg">
 
   <!-- Twitter Card Tags -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://muhammedanzil.vercel.app/">
+  <meta property="twitter:title" content="Muhammed Anzil | Python Django Full Stack Developer">
+  <meta property="twitter:description" content="Explore the professional portfolio of Muhammed Anzil, featuring full-stack web development projects, skills, and contact information.">
   <meta property="twitter:image" content="https://muhammedanzil.vercel.app/Googlimage.jpg">
-
-
+  
   <!-- Google Search & Knowledge Graph Hidden Image (Schema Markup) -->
   <script type="application/ld+json">
   {
@@ -27,7 +37,6 @@
   }
   </script>
 
-  
   <!-- Modern Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +59,6 @@
       transition: background 0.4s ease, color 0.4s ease;
     }
     
-    /* Light mode base */
     body.light { background: #f3f4f6; color: #020617; }
     body.light a { color: #2563eb; }
     body.light a:hover { color: #1d4ed8; }
@@ -59,7 +67,6 @@
     body.light .pill i { color: #2563eb; }
     body.light footer { color: #6b7280; }
     
-    /* Elegant Code Syntax Floating Background */
     .bg-blob {
       position: fixed;
       inset: auto -200px -200px auto;
@@ -114,18 +121,32 @@
     a:hover { text-decoration: underline; color: #7dd3fc; }
     
     /* ==================================================
-       HERO / HEADER SECTION - FULL SCREEN COVER PAGE
+       HERO / HEADER SECTION - FULL SCREEN BACKGROUND IMAGE
        ================================================== */
     header {
       width: 100%;
-      min-height: 100vh; 
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: center; 
       align-items: center;
       position: relative; 
       z-index: 100;
       padding: 2rem 1.5rem;
+      background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9)), url('Googlimage.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+      -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    }
+
+    body.light header {
+      background: linear-gradient(rgba(243, 244, 246, 0.7), rgba(243, 244, 246, 0.9)), url('Googlimage.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .header-inner {
@@ -134,29 +155,6 @@
       align-items: center;
       text-align: center;
       width: 100%;
-    }
-
-    /* Cutout Profile Image with Fade Mask */
-    .profile-img-container {
-      width: 220px;
-      height: 250px;
-      margin-bottom: -15px; 
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 95%);
-      
-      opacity: 0;
-      animation: photoReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: bottom;
     }
 
     .header-text {
@@ -169,25 +167,25 @@
     /* Animated Text */
     .greeting {
       font-size: 1.2rem;
-      color: #9ca3af;
+      color: #cbd5e1;
       font-weight: 400;
       letter-spacing: 0.05em;
       opacity: 0;
-      animation: heroFadeUp 0.8s ease forwards 0.5s;
+      animation: heroFadeUp 0.8s ease forwards 0.2s;
     }
 
     header h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      margin: 0.2rem 0;
+      margin: 0.5rem 0;
       white-space: nowrap; 
       background: linear-gradient(135deg, #ffffff 0%, #cbd5f5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       opacity: 0;
-      animation: heroFadeUp 0.8s ease forwards 0.7s;
+      animation: heroFadeUp 0.8s ease forwards 0.4s;
     }
     
     body.light header h1 {
@@ -197,21 +195,24 @@
     }
 
     header h2 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: 300;
-      color: #cbd5f5;
+      color: #e2e8f0;
       opacity: 0;
-      animation: heroFadeUp 0.8s ease forwards 0.9s;
+      animation: heroFadeUp 0.8s ease forwards 0.6s;
+    }
+
+    body.light header h2, body.light .greeting {
+      color: #334155;
     }
 
     .highlight {
       color: #38bdf8;
       font-weight: 600;
     }
-
-    @keyframes photoReveal {
-      from { opacity: 0; transform: scale(0.9) translateY(20px); filter: blur(10px); }
-      to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+    
+    body.light .highlight {
+      color: #2563eb;
     }
 
     @keyframes heroFadeUp {
@@ -221,17 +222,17 @@
 
     /* Theme Toggle */
     .theme-toggle {
-      position: absolute; /* ആദ്യ പേജിന്റെ മുകളിൽ നിൽക്കും */
+      position: absolute;
       right: 1.5rem;
       top: 2rem;
       border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       width: 40px;
       height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(15, 23, 42, 0.3);
+      background: rgba(15, 23, 42, 0.5);
       backdrop-filter: blur(8px);
       cursor: pointer;
       color: #f9fafb;
@@ -241,20 +242,20 @@
 
     .theme-toggle:hover {
       transform: translateY(-2px) rotate(15deg);
-      background: rgba(15, 23, 42, 0.8);
-      border-color: rgba(56, 189, 248, 0.6);
-      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
     }
 
-    body.light .theme-toggle { background: rgba(255, 255, 255, 0.5); color: #020617; border-color: rgba(0,0,0,0.1); }
-    body.light .theme-toggle:hover { background: rgba(255,255,255,1); border-color: #38bdf8; }
+    body.light .theme-toggle { background: rgba(255, 255, 255, 0.8); color: #020617; border-color: rgba(0,0,0,0.1); }
+    body.light .theme-toggle:hover { background: rgba(255,255,255,1); border-color: #2563eb; }
 
     /* ==================================================
-       MAIN CONTENT (ആദ്യ പേജിന് ശേഷം വരുന്നത്)
+       MAIN CONTENT 
        ================================================== */
     main {
       max-width: 900px;
-      margin: 0 auto; /* ഓവർലാപ്പ് മാറ്റി നോർമൽ ആക്കി */
+      margin: 0 auto; 
       padding: 0 1.5rem 2rem;
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -262,9 +263,6 @@
       align-items: start;
     }
 
-    /* ==================================================
-       NAVIGATION CHIPS (Hidden on load, appear on scroll)
-       ================================================== */
     .nav-chips {
       grid-column: 1 / -1;
       margin: 0 0 1.5rem 0;
@@ -299,9 +297,6 @@
 
     .sidebar { position: sticky; top: 30px; }
 
-    /* ==================================================
-       SECTION BOXES
-       ================================================== */
     section {
       margin-bottom: 1.6rem;
       padding: 1.5rem;
@@ -376,7 +371,6 @@
 
     .skill-category { margin-top: 1.2rem; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
 
-    /* PROJECT SECTION */
     .project { margin-bottom: 1.8rem; transition: transform 0.3s ease; }
     .project:hover { transform: translateX(6px); }
     .project-title { font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1.2rem; color: #fff; }
@@ -410,9 +404,6 @@
     ul { padding-left: 1.2rem; }
     li { margin-bottom: 0.5rem; }
 
-    /* ==================================================
-       SIDEBAR CONTACT LINKS
-       ================================================== */
     .contact-links a {
       display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.95rem; font-weight: 400; word-break: break-all;
       padding: 0.5rem 0.6rem; border-radius: 0.8rem; border: 1px solid transparent; background: rgba(30, 41, 59, 0.2); transition: all 0.3s ease; color: #e5e7eb; text-decoration: none;
@@ -425,9 +416,6 @@
     body.light .contact-links a { color: #020617; }
     body.light .contact-links a:hover { background: rgba(255, 255, 255, 0.8); }
 
-    /* ==================================================
-       NEW CALL TO ACTION (CTA) ENDING SECTION
-       ================================================== */
     section.cta-section {
       grid-column: 1 / -1; 
       background: transparent !important;
@@ -495,11 +483,13 @@
     .scroll-top:hover { background: rgba(56, 189, 248, 0.1); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3); }
     .scroll-top i { font-size: 1.5rem; }
 
-    /* MOBILE RESPONSIVE */
+    /* MOBILE RESPONSIVE - ഫോണ്ട് സൈസ് കൃത്യമാക്കിയിരിക്കുന്നു 👇 */
     @media (max-width: 480px) {
-      header h1 { font-size: 2.2rem; }
+      header h1 { 
+        font-size: 2.2rem; 
+        white-space: normal; /* ചെറിയ സ്ക്രീനിൽ കട്ട് ആകാതിരിക്കാൻ */
+      }
       header h2 { font-size: 1.1rem; }
-      .profile-img-container { width: 180px; height: 210px; margin-bottom: -15px; }
       .project-img { height: 180px; }
       .cta-text { font-size: 1.2rem; }
     }
@@ -515,7 +505,6 @@
 <body>
   <div class="bg-blob"></div>
 
-  <!-- Unique floating programming syntax background -->
   <div class="code-bg">
     <span class="code-symbol">{ }</span>
     <span class="code-symbol">&lt;/&gt;</span>
@@ -531,11 +520,6 @@
     </button>
       
     <div class="header-inner">
-      <div class="profile-img-container">
-        <!-- Replace this URL with your own transparent cutout PNG -->
-        <img src="cutout.png" alt="Muhammed Anzil" class="profile-img" />
-      </div>
-      
       <div class="header-text">
         <span class="greeting">Hi! my name is</span>
         <h1>Muhammed Anzil</h1>
@@ -545,7 +529,6 @@
   </header>
 
   <main>
-    <!-- Nav Chips (Hidden on load, triggered on scroll) -->
     <div class="nav-chips" id="navChips">
       <a href="#about" class="nav-chip"><i class="ri-user-smile-line"></i> About</a>
       <a href="#projects" class="nav-chip"><i class="ri-layout-masonry-line"></i> Projects</a>
@@ -554,7 +537,6 @@
       <a href="#education" class="nav-chip"><i class="ri-graduation-cap-line"></i> Education</a>
     </div>
 
-    <!-- Left column -->
     <div>
       <section id="about">
         <h3><i class="ri-user-smile-line"></i> About Me</h3>
@@ -607,10 +589,16 @@
         <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
         <p>Kannur University</p>
         <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.2rem;">June 2023 - April 2026</p>
+
+        <h3>  </h3>
+        <p><strong>Python Django Full Stack - React JS</strong></p>
+        <p>Luminar Technolab</p>
+        <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.2rem;">June 2026</p>
+
       </section>
+      
     </div>
 
-    <!-- Right column (sidebar) -->
     <div class="sidebar">
       <section id="skills">
         <h3><i class="ri-code-line"></i> Technical Skills</h3>
@@ -654,35 +642,33 @@
       </section>
 
       <section id="contact-sidebar">
-        <h3><i class="ri-send-plane-2-line"></i> Contact </h3>
+        <h3><i class="ri-send-plane-2-line"></i> Contact Links</h3>
         <div class="contact-links">
-          <!-- 100% Functional Links Added Below -->
-          <a href="https://www.linkedin.com/in/muhammed-anzil-2562a840a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
-            <i class="ri-linkedin-box-line"></i> LinkedIn
-          </a>
           <a href="mailto:muhammedanzil.official@gmail.com" target="_blank">
             <i class="ri-mail-line"></i> muhammedanzil.official@gmail.com
           </a>
-          <a href="https://www.instagram.com/anzil.muhammd?igsh=MWNocDkyeDU4aHlsMQ==" target="_blank">
-            <i class="ri-instagram-line"></i> Instagram
           <a href="tel:+917510423936">
             <i class="ri-phone-line"></i> +91 7510423936
           </a>
           <a href="https://www.google.com/maps/place/Kerala,+India" target="_blank">
             <i class="ri-map-pin-line"></i> Kerala, India
           </a>
+          <a href="https://www.linkedin.com/in/muhammed-anzil" target="_blank">
+            <i class="ri-linkedin-box-line"></i> LinkedIn
+          </a>
+          <a href="https://instagram.com/anzil_m_m" target="_blank">
+            <i class="ri-instagram-line"></i> Instagram
+          </a>
         </div>
       </section>
     </div>
 
-    <!-- Functional WhatsApp Call to Action Ending -->
     <section class="cta-section" id="contact">
       <p class="cta-text">
         Looking to build something extraordinary? Let’s bring your ideas to life. Whether you have an exciting project in mind, need a full-stack developer, or just want to say hello—my inbox is always open.
       </p>
-      <!-- Direct link to WhatsApp with pre-filled greeting -->
       <a href="https://wa.me/917510423936?text=Hi%20Anzil,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" class="cta-button" target="_blank">
-        <i class="ri-whatsapp-line" style="margin-right: 8px; font-size: 1.4rem;"></i> Get In Touch
+        <i class="ri-whatsapp-line" style="margin-right: 8px; font-size: 1.4rem;"></i> Message on WhatsApp
       </a>
     </section>
   </main>
@@ -702,18 +688,15 @@
     const scrollBtn = document.getElementById("scrollTopBtn");
     const navChips = document.getElementById("navChips");
 
-    // Unified scroll handler
     const handleScroll = () => {
       let scrollPos = window.scrollY;
 
-      // Show Nav Chips ONLY after scrolling down past the hero
       if (scrollPos > 150) {
         navChips.classList.add("show-chips");
       } else {
         navChips.classList.remove("show-chips");
       }
 
-      // Show back-to-top button
       if (scrollPos > 300) {
         scrollBtn.classList.add("visible");
       } else {
@@ -727,7 +710,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Theme toggle
     const themeToggle = document.getElementById("themeToggle");
     const body = document.body;
     const themeIcon = themeToggle.querySelector("i");
@@ -752,7 +734,6 @@
       }
     });
 
-    // Smooth scroll for nav chips
     document.querySelectorAll('.nav-chip').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href').substring(1);
@@ -774,7 +755,6 @@
       });
     });
 
-    // Cinematic Intersection Observer for scroll animations
     const observerOptions = {
       root: null,
       rootMargin: '0px 0px -50px 0px', 
@@ -797,7 +777,6 @@
       }
     });
     
-    // Specifically observe the CTA section
     const ctaSection = document.getElementById('contact');
     if(ctaSection) sectionObserver.observe(ctaSection);
 
