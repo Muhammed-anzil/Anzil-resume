@@ -87,13 +87,7 @@
     body.light .pill i { color: #2563eb; }
     body.light footer { color: #6b7280; }
 
-    /* FLUID RIPPLE THEME TRANSITION */
-    .theme-ripple {
-      position: fixed; border-radius: 50%; transform: scale(0); z-index: 100000;
-      pointer-events: none; transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
-    }
-
-    /* 💎 DYNAMIC BACKGROUND TITLE (WATERMARK WITH GLOW) */
+    /* DYNAMIC BACKGROUND TITLE (WATERMARK WITH GLOW) */
     .bg-section-title {
       position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
       font-size: 15vw; font-weight: 800; font-family: 'Outfit', sans-serif;
@@ -168,6 +162,49 @@
     body.light .typing-cursor { background-color: #2563eb; }
     @keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     @keyframes heroFadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* 📱 NEW SINGLE-LINE CONTACT LINKS (BOTTOM OF HERO) */
+    .hero-bottom-links {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+      opacity: 0;
+      animation: heroFadeUp 0.8s ease forwards 0.8s;
+    }
+    
+    .contact-links a {
+      display: flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; 
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(8px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      color: #e5e7eb; text-decoration: none;
+    }
+    .contact-links a i { font-size: 1.25rem; color: #38bdf8; transition: color 0.3s ease; } 
+    .contact-links a:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+      transform: translateY(-5px) scale(1.05);
+    }
+    .contact-links a:hover i { color: #fff; }
+
+    body.light .contact-links a { background: rgba(255, 255, 255, 0.6); border-color: rgba(0,0,0,0.1); }
+    body.light .contact-links a:hover {
+      background: rgba(37, 99, 235, 0.15); border-color: rgba(37, 99, 235, 0.6);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
 
     /* MOBILE TOUCH SCALE EFFECT */
     .touch-scale:active { transform: scale(0.95) !important; transition: transform 0.1s ease; }
@@ -253,11 +290,6 @@
     .sidebar p, .sidebar li { font-size: 0.95rem; color: #d1d5db; font-weight: 300; }
     ul { padding-left: 1.2rem; } li { margin-bottom: 0.5rem; }
 
-    .contact-links a { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.95rem; font-weight: 400; word-break: break-all; padding: 0.5rem 0.6rem; border-radius: 0.8rem; border: 1px solid transparent; background: rgba(30, 41, 59, 0.2); transition: all 0.3s ease; color: #e5e7eb; text-decoration: none; }
-    .contact-links a i { font-size: 1.2rem; color: #38bdf8; }
-    .contact-links a:hover { background: rgba(30, 41, 59, 0.8); border-color: rgba(56, 189, 248, 0.5); transform: translateX(5px); }
-    body.light .contact-links a { color: #020617; }
-
     section.cta-section { grid-column: 1 / -1; background: transparent !important; border: none !important; box-shadow: none !important; backdrop-filter: none !important; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 6rem 1rem 4rem; margin-bottom: 0; }
     .cta-text { font-size: 1.4rem; font-weight: 300; color: #e5e7eb; max-width: 650px; line-height: 1.7; margin-bottom: 2.5rem; }
     body.light .cta-text { color: #374151; }
@@ -325,6 +357,24 @@
         <h2>I am a <span class="highlight" id="typewriter"></span><span class="typing-cursor"></span></h2>
       </div>
     </div>
+
+    <!-- CONTACT ICONS MOVED TO THE BOTTOM OF THE HERO IMAGE -->
+    <div class="hero-bottom-links">
+      <div class="contact-links">
+        <a href="mailto:muhammedanzil.official@gmail.com" class="interactive touch-scale haptic" aria-label="Email" title="Email Me">
+          <i class="ri-mail-line"></i>
+        </a>
+        <a href="tel:+917510423936" class="interactive touch-scale haptic" aria-label="Phone" title="Call Me">
+          <i class="ri-phone-line"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammed-anzil-2562a840a?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="interactive touch-scale haptic" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+          <i class="ri-linkedin-box-line"></i>
+        </a>
+        <a href="https://instagram.com/anzil_m_m" class="interactive touch-scale haptic" target="_blank" aria-label="Instagram" title="Instagram">
+          <i class="ri-instagram-line"></i>
+        </a>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -386,7 +436,7 @@
         
         <div>
           <p><strong>Bachelor of Computer Applications (BCA)</strong></p>
-          <p>WMO Arts and Science College, Kannur University </p>
+          <p>WMO Arts and Science College, Kappumchal</p>
           <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.2rem;">June 2023 - April 2026</p>
         </div>
 
@@ -438,24 +488,6 @@
           <span class="pill interactive touch-scale magnetic-pill">Hindi</span>
         </div>
       </section>
-
-      <section id="contact-sidebar">
-        <h3><i class="ri-send-plane-2-line"></i> Contact Links</h3>
-        <div class="contact-links">
-          <a href="mailto:muhammedanzil.official@gmail.com" class="interactive touch-scale haptic" target="_blank">
-            <i class="ri-mail-line"></i> muhammedanzil.official@gmail.com
-          </a>
-          <a href="tel:+917510423936" class="interactive touch-scale haptic">
-            <i class="ri-phone-line"></i> +91 7510423936
-          </a>
-          <a href="https://www.linkedin.com/in/muhammed-anzil" class="interactive touch-scale haptic" target="_blank">
-            <i class="ri-linkedin-box-line"></i> LinkedIn
-          </a>
-          <a href="https://instagram.com/anzil_m_m" class="interactive touch-scale haptic" target="_blank">
-            <i class="ri-instagram-line"></i> Instagram
-          </a>
-        </div>
-      </section>
     </div>
 
     <section class="cta-section" id="contact">
@@ -463,7 +495,7 @@
         Looking to build something extraordinary? Let’s bring your ideas to life. Whether you have an exciting project in mind, need a full-stack developer, or just want to say hello—my inbox is always open.
       </p>
       <a href="https://wa.me/917510423936?text=Hi%20Anzil,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" class="cta-button magnetic interactive touch-scale haptic" target="_blank">
-        <i class="ri-whatsapp-line" style="font-size: 1.4rem; margin-right: 8px;"></i> Message on WhatsApp
+        <i class="ri-whatsapp-line" style="font-size: 1.4rem; margin-right: 8px;"></i> Say Hello !
       </a>
     </section>
   </main>
@@ -501,7 +533,7 @@
       el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
     });
 
-    // FLUID RIPPLE THEME TOGGLE
+    // 🌟 FADE IN & FADE OUT THEME TOGGLE (NO RIPPLE)
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = themeToggle.querySelector("i");
     
@@ -510,37 +542,35 @@
       themeIcon.classList.replace("ri-moon-line", "ri-sun-line");
     }
 
-    themeToggle.addEventListener("click", (e) => {
+    themeToggle.addEventListener("click", () => {
       const isLight = !body.classList.contains("light");
       
-      const ripple = document.createElement("div");
-      ripple.className = "theme-ripple";
-      ripple.style.background = isLight ? "#f3f4f6" : "#020617";
-      
-      const rect = themeToggle.getBoundingClientRect();
-      const x = e.clientX || rect.left + rect.width / 2;
-      const y = e.clientY || rect.top + rect.height / 2;
-      const size = Math.max(window.innerWidth, window.innerHeight) * 3;
-      
-      ripple.style.width = ripple.style.height = `${size}px`;
-      ripple.style.left = `${x - size / 2}px`;
-      ripple.style.top = `${y - size / 2}px`;
-      document.body.appendChild(ripple);
+      // Create a full-screen overlay for smooth fade transition
+      const fadeOverlay = document.createElement("div");
+      fadeOverlay.style.position = "fixed";
+      fadeOverlay.style.inset = "0";
+      fadeOverlay.style.background = isLight ? "#f3f4f6" : "#020617";
+      fadeOverlay.style.zIndex = "100000";
+      fadeOverlay.style.opacity = "0";
+      fadeOverlay.style.transition = "opacity 0.4s ease";
+      fadeOverlay.style.pointerEvents = "none";
+      document.body.appendChild(fadeOverlay);
 
+      // Trigger fade in
       requestAnimationFrame(() => {
-        ripple.style.transform = "scale(1)";
+        fadeOverlay.style.opacity = "1";
       });
 
+      // Switch actual theme while screen is covered
       setTimeout(() => {
         body.classList.toggle("light");
         themeIcon.classList.replace(isLight ? "ri-moon-line" : "ri-sun-line", isLight ? "ri-sun-line" : "ri-moon-line");
         localStorage.setItem("theme", isLight ? "light" : "dark");
-      }, 300);
-
-      setTimeout(() => {
-        ripple.style.opacity = "0";
-        setTimeout(() => ripple.remove(), 500);
-      }, 700);
+        
+        // Trigger fade out
+        fadeOverlay.style.opacity = "0";
+        setTimeout(() => fadeOverlay.remove(), 400); // Remove element after fade out
+      }, 400); // Wait for fade in to complete
     });
 
     // DYNAMIC BACKGROUND TITLE (WATERMARK FIXED)
